@@ -1,0 +1,114 @@
+/* Google Fontlarının içe aktarılması */
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Kök (root) öğesi için özelleştirilmiş değişkenler belirliyoruz */
+:root {
+    --line-border-fill: #90e0ef; /* Dolu ilerleme çizgisi rengi */
+    --line-border-empty: #edede9; /* Boş ilerleme çizgisi rengi */
+}
+
+/* Tüm öğelerde kutu modelini sınır kutusu olarak ayarlıyoruz */
+* {
+    box-sizing: border-box;
+}
+
+/* Sayfa genelindeki stil ayarları */
+body {
+    font-family: "Inter", sans-serif; /* Yazı tipi belirleme */
+    background-color: #e9edc9; /* Arka plan rengi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ekran yüksekliği kadar alan kaplama */
+    margin: 0px;
+    overflow: hidden; /* Taşan içerikleri gizleme */
+}
+
+/* Ana içerik kapsayıcısı için stil ayarları */
+.container {
+    text-align: center; /* İçerikleri ortala */
+}
+
+/* İlerleme çubukları kapsayıcısı için stil ayarları */
+.progress-container {
+    display: flex;
+    justify-content: space-between; /* Aralarında boşluk bırakarak içerikleri yatay hizala */
+    position: relative;
+    margin-bottom: 30px; /* Aşağıya boşluk bırakma */
+    width: 350px; /* İlerleme çubuklarının genişliği */
+    max-width: 100%; /* En fazla genişlik ayarı */
+}
+
+/* Boş ilerleme çizgisi için stil ayarları */
+.progress-container::before {
+    content: '';
+    background-color: var(--line-border-empty);
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 50%; /* Yükseklikte dikey hizalama */
+    left: 0;
+    transform: translateY(-50%); /* Yükseklik ortalaması */
+    z-index: -1; /* Arkada kalma katmanı */
+    transition: 0.4s ease; /* Geçiş efekti süresi */
+}
+
+/* Dolu ilerleme çizgisi için stil ayarları */
+.progress {
+    background-color: var(--line-border-fill);
+    height: 4px;
+    width: 0%; /* İlerleme çubuğunun başlangıç genişliği */
+    position: absolute;
+    top: 50%; /* Yükseklikte dikey hizalama */
+    left: 0;
+    transform: translateY(-50%); /* Yükseklik ortalaması */
+    z-index: -1; /* Arkada kalma katmanı */
+    transition: 0.4s ease; /* Geçiş efekti süresi */
+}
+
+/* Yuvarlak ilerleme çubuğu için stil ayarları */
+.circle{
+    background-color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--line-border-empty);
+    transition: 0.4s ease; /* Geçiş efekti süresi */
+}
+
+/* Aktif durumdaki yuvarlak ilerleme çubuğu için stil ayarları */
+.circle.active{
+    border-color: var(--line-border-fill);
+}
+
+/* Düğme (button) için stil ayarları */
+.btn{
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 24px;
+    font-size: 14px;
+    margin: 5px;
+}
+
+/* Düğme tıklanma durumu için stil ayarları */
+.btn:active{
+    transform: scale(0.98); /* Küçük ölçüde küçültme */
+}
+
+/* Düğme odaklanma durumu için stil ayarları */
+.btn:focus{
+    outline: 0; /* Odak çerçevesini kaldırma */
+}
+
+/* Devre dışı bırakılmış düğme için stil ayarları */
+.btn:disabled{
+    background-color: var(--line-border-empty);
+}
